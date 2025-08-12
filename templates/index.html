@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chatbot Gemini — Demo</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">✨ Gemini Chat</div>
+      <div class="actions">
+        <button id="resetBtn" class="btn ghost">Reset</button>
+      </div>
+    </header>
+
+    <main class="chat-wrap">
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <form id="composer" class="composer" autocomplete="off">
+        <textarea id="input" placeholder="Gõ tin nhắn... (Shift+Enter xuống dòng). Enter gửi." rows="1"></textarea>
+        <button type="submit" id="sendBtn" class="btn primary">Gửi</button>
+      </form>
+    </main>
+
+    <footer class="foot">
+    </footer>
+  </div>
+
+  <script src="/static/chat.js"></script>
+</body>
+</html>

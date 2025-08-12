@@ -1,0 +1,158 @@
+/* style.css - minimal modern UI */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#6b46c1;
+  --accent-2:#7c3aed;
+  --bubble-user:#d1ffd8;
+  --bubble-bot:#eef2ff;
+}
+
+*{box-sizing:border-box}
+html,body,#messages{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#071525 0%, #0f1724 100%);
+  color:#e6eef6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  min-height:100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  max-width: 900px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  overflow: hidden;
+}
+
+/* top */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+.brand{
+  font-weight:700;
+  letter-spacing:0.2px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.brand::before{
+  content:"";
+  width:10px; height:10px;
+  background:linear-gradient(45deg,var(--accent),var(--accent-2));
+  border-radius:50%;
+  box-shadow:0 0 18px rgba(124,58,237,0.6);
+}
+
+/* chat area */
+.chat-wrap {
+  flex: 1 1 auto;          /* cho phép mở rộng */
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  gap: 12px;
+  overflow: hidden;       /* ẩn tràn */
+}
+.messages {
+  flex: 1 1 auto;          /* chiếm không gian lớn nhất */
+  overflow-y: auto;        /* bật thanh cuộn dọc */
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* message bubbles */
+.msg{
+  max-width:78%;
+  padding:12px 14px;
+  border-radius:14px;
+  line-height:1.4;
+  font-size:15px;
+  box-shadow: 0 4px 20px rgba(2,6,23,0.35);
+  word-wrap:break-word;
+}
+.msg.bot{
+  background:var(--bubble-bot);
+  color:#0b1220;
+  align-self:flex-start;
+  border-bottom-left-radius:6px;
+}
+.msg.user{
+  background:var(--bubble-user);
+  color:#05230a;
+  align-self:flex-end;
+  border-bottom-right-radius:6px;
+}
+
+/* composer */
+.composer {
+  flex-shrink: 0;          /* không co lại */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-top: 6px;
+}
+textarea {
+  flex: 1 1 auto;
+  min-height: 44px;
+  max-height: 150px;       /* tối đa 150px */
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 15px;
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+  overflow-y: auto;        /* thanh cuộn dọc nếu quá dài */
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.btn{
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  background:transparent;
+  color:var(--muted);
+}
+.btn.primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  box-shadow:0 6px 18px rgba(106, 46, 189, 0.25);
+}
+.btn.ghost{
+  color:var(--muted);
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* footer */
+.foot{
+  padding:10px 16px;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.02);
+}
+
+/* small responsive */
+@media (max-width:600px){
+  .app{height:92vh; border-radius:10px}
+  .msg{font-size:14px}
+}
